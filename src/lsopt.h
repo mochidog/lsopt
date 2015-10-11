@@ -19,11 +19,6 @@
  *
  */
 
-#define LSOPT_MAX_ITERATION 100
-
-typedef long int    lso_int;
-typedef double      lso_double;
-typedef float       lso_float;
 
 typedef struct lsopt_lm_option_s {
     int     lm_max_iteration;
@@ -40,5 +35,5 @@ extern const lsopt_lm_option_t lsopt_lm_option_default;
 typedef void (*lsopt_func_t)(const double *x, const int *x_dim, double *y, const int *y_dim);
 
 void lsopt_lm(lsopt_func_t func, const double *x_init, const int *x_dim, const int *y_dim,
-        double *x_min, double *y_min, const lsopt_lm_option_t* options);
+        double *x_min, double *F_min, const lsopt_lm_option_t* options);
 
